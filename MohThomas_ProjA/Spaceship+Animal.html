@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spaceship Attempting to Abduct Animal</title>
+  </head>
+	<!--	Create the HTML5 'canvas' element in which we will run WebGL  -->
+  <body onload="main()">
+    <canvas id="webgl" width="300" height="300">
+    Please use a browser that supports "canvas"
+    </canvas>
+	<p>
+	<!-- Make a 'div' element to hold changeable HTML made in our JavaScript file;
+		 (where? look inside main(), inside its 'tick()' function, where we
+		 display the 'current angle' value.
+	-->
+	This is a graphic displaying a spaceship attempting to abduct an animal.
+	You can move the animal around by clicking and dragging on-screen while holding the 'M' key. You can move the animal forwards and backwards by holding the 'W' key and the 'S' key respectively. Other controls are listed below.
+	<hr>
+	<div class="rangeslider">
+		<input type="range" min="0" max="10" value="5"
+				   class="myslider" id="sliderRange">
+  	</div>
+	Use this slider to increase and decrease the speed at which the spaceship grabs.
+	<hr>
+	<div id= CurAngleDisplay></div> 
+	<!-- Next, make a simple block of text 
+	-->
+	Type in a new angle magnitude for the entire claw to flex within (0 < x < 30  for supported behavior), or type in 50 for an obvious, albeit ugly flex angle: 
+	<!-- Next, make an HTML 'input' box element, a text-box 10 chars wide where users
+		can type in text.  Give it an ID name so that our JavaScript program
+		(e.g. ControlMulti.js, loaded near the end of this file) can access this
+		HTML element by name in the 'tick' function.
+	--><input id='usrAngle' size=10> 
+		<button type="button" onClick='angleSubmit()'>Submit</button><BR> 
+		<div id= EditBoxOut></div>
+	</p>
+	<hr>
+	<div id= ColorDisplay></div> 
+	<!-- Next, make a simple block of text 
+	-->
+	Click on the color that you'd like the spaceship base to be primarily composed of.
+	<!-- Next, make an HTML 'input' box element, a text-box 10 chars wide where users
+		can type in text.  Give it an ID name so that our JavaScript program
+		(e.g. ControlMulti.js, loaded near the end of this file) can access this
+		HTML element by name in the 'tick' function.
+	-->
+	<br>	
+	<button type="button" onClick='redButtonHit()'>Red</button><BR> 
+		<button type="button" onClick='greenButtonHit()'>Green</button><BR> 
+	
+	<!--  Mouse click/drag amounts.  Look in 'console' for event reports;
+			the 'clear' button calls Javascript function 'clearDrag()'
+			whose sole purpose is to set global vars xMdragTot,yMdragTot ==0.0
+		  Note we use these totals to rotate the triangle at upper left.
+	-->
+		
+	<p>
+		<!--BUTTONS: commands below create HTML push-buttons with labels
+			Spin <<, runStop, and Spin >>.  
+		When users click the button, HTML calls JavaScript functions
+			"spinDown()", "runStop()" and "spinUp()"   -->
+     <hr> 
+	 Click this button to stop and start the spaceship animations.
+	  <button type="button" onclick="runStop()">Run/Stop</button>
+      
+    </p>
+	<!--	Load in the JavaScript libraries supplied by our textbook 
+			(Matsuda et al., 2013 WebGL Programming Guide) that help us
+			with WebGL programming:
+	-->
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix-quat03.js"></script>
+	<!--	Finally, load in our own JavaScript program file.
+	-->
+    <script src="Spaceship+Animal.js"></script>
+  </body>
+</html>
